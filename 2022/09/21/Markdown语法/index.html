@@ -456,7 +456,10 @@
 </tbody></table>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| Syntax      | Description | Test Text     |</span><br><span class="line">| :------        |    :---------:  |    -------: |</span><br><span class="line">| Header      | Title       | Here&#x27;s this   |</span><br><span class="line">| Paragraph   | Text        | And more      |</span><br></pre></td></tr></table></figure>
 
-<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>要创建脚注,需要使用<code>[^x]</code>符号,其中x可以为任意数字或单词,但会自动转化为连续的数字,但不能含有空格。在博客的其他位置使用<code>[^x]: 文本</code>为脚注添加注释。<br>这是一个脚注[^a]。<br>[^a]: Hello!</p>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>要创建脚注,需要使用<code>[^x]</code>符号,其中x可以为任意数字或单词,但会自动转化为连续的数字,但不能含有空格。在博客的其他位置使用<code>[^x]: 文本</code>为脚注添加注释。 但是hexo的默认渲染器并不支持脚注功能,需要安装<code>hexo-reference</code>插件。<br>安装代码: <code>npm install hexo-reference</code><br>并在网站目录下的<code>_config.yml</code>文件中添加一下代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - hexo-reference</span><br></pre></td></tr></table></figure>
+
+<p>这是一个脚注[^a]。<br>[^a]: Hello!</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个脚注[^a]。</span><br><span class="line">[^a]:Hello!</span><br></pre></td></tr></table></figure>
 
 <h2 id="使用emoji表情"><a href="#使用emoji表情" class="headerlink" title="使用emoji表情"></a>使用emoji表情</h2><p>使用emoji表情有两种方法</p>
