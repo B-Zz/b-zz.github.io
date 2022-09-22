@@ -328,14 +328,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span></span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>NaN:aN</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -545,18 +545,18 @@
 </tbody></table>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| Syntax      | Description | Test Text     |</span><br><span class="line">| :------        |    :---------:  |    -------: |</span><br><span class="line">| Header      | Title       | Here&#x27;s this   |</span><br><span class="line">| Paragraph   | Text        | And more      |</span><br></pre></td></tr></table></figure>
 
-<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>要创建脚注,需要使用<code>[^x]</code>符号,其中x可以为任意数字或单词,但会自动转化为连续的数字,但不能含有空格。在博客的其他位置使用<code>[^x]: 文本</code>为脚注添加注释。 但是hexo的默认渲染器并不支持脚注功能,需要安装<code>hexo-reference</code>插件。<br>安装代码: <code>npm install hexo-reference</code><br>并在网站目录下的<code>_config.yml</code>文件中添加一下代码:</p>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>要创建脚注,需要使用<code>[^x]</code>符号,其中x可以为任意数字,但会自动转化为连续的数字,但不能含有空格。在博客的其他位置使用<code>[^x]: 文本</code>为脚注添加注释。 但是hexo的默认渲染器并不支持脚注功能,需要安装<code>hexo-reference</code>插件。<br>安装代码: <code>npm install hexo-reference</code><br>并在网站目录下的<code>_config.yml</code>文件中添加一下代码:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - hexo-reference</span><br></pre></td></tr></table></figure>
 
-<p>这是一个脚注[^a]。<br>[^a]: Hello!</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个脚注[^a]。</span><br><span class="line">[^a]:Hello!</span><br></pre></td></tr></table></figure>
+<p>这是一个脚注<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Hello!</span><br></pre></td></tr></table></figure></hexoPostRenderCodeBlock>">[1]</span></a></sup>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个脚注<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Hello!</span><br></pre></td></tr></table></figure>">[1]</span></a></sup>。</span><br><span class="line">
 
 <h2 id="使用emoji表情"><a href="#使用emoji表情" class="headerlink" title="使用emoji表情"></a>使用emoji表情</h2><p>使用emoji表情有两种方法</p>
 <ol>
 <li>从<a target="_blank" rel="noopener" href="https://emojipedia.org/">Emojipedia</a>或其他源上复制表情,并粘贴在Markdown文件中。❤️</li>
 <li>使用表情符号简码。在Markdown中以两个冒号夹着一个表情符号的名称(:表情符号的名称:)来构成表情号简码。而<a target="_blank" rel="noopener" href="https://gist.github.com/rxaviers/7360908">此网站</a>将为你提供各种表情符号简码。但注意,有些网站可能无法识别,比如说我的。<br>:smile:		:tent:<br><code>:smile:</code>	<code>:tent:</code></li>
 </ol>
-<h2 id="内嵌html标签"><a href="#内嵌html标签" class="headerlink" title="内嵌html标签"></a>内嵌html标签</h2><p>在Markdown中使用html语言,并不需要额外标注,可以直接使用。但在html中markdown不适用。</p>
+<h2 id="内嵌html标签"><a href="#内嵌html标签" class="headerlink" title="内嵌html标签"></a>内嵌html标签</h2><p>在Markdown中使用html语言,并不需要额外标注,可以直接使用。但在html中markdown不适用。<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Hello!<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Hello!</span><br></pre></td></tr></table></figure></hexoPostRenderCodeBlock><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div></p>
 
       
     </div>
