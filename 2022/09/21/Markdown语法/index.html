@@ -473,7 +473,6 @@
 <h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>要创建脚注,需要使用<code>[^x]</code>符号,其中x可以为任意数字,但会自动转化为连续的数字,但不能含有空格。在博客的其他位置使用<code>[^x]: 文本</code>为脚注添加注释。 但是hexo的默认渲染器并不支持脚注功能,需要安装<code>hexo-reference</code>插件。<br>安装代码: <code>npm install hexo-reference</code><br>并在网站目录下的<code>_config.yml</code>文件中添加一下代码:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - hexo-reference</span><br></pre></td></tr></table></figure>
 <p>但是使用插件会有问题,需要把注释放在最后。同时,插件似乎与next主题会产生bug,导致跳转按钮错位,我就不使用了。</p>
-<p>这是一个脚注<a href="Hello!">^1</a>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个脚注[^1]。</span><br><span class="line">[^1]:Hello!</span><br></pre></td></tr></table></figure>
 
 <h2 id="使用emoji表情"><a href="#使用emoji表情" class="headerlink" title="使用emoji表情"></a>使用emoji表情</h2><p>使用emoji表情有两种方法</p>
