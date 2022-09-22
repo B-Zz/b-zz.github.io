@@ -256,7 +256,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="欢迎来到我的个人博客"><a href="#欢迎来到我的个人博客" class="headerlink" title="欢迎来到我的个人博客!"></a>欢迎来到我的个人博客!</h1><p><strong>网站简介</strong><br>其实很早以前,我就想过建立自己的个人博客了,但都没有开始过。直到今天,我开始了。在这里,我将分享自己的学习经历,并将学习的知识点进行梳理,形成我自己的教程。其次,我希望在这里分享我感兴趣的,热爱的事情,不管是游戏还是科技,或是音乐。</p>
+          <h1 id="欢迎来到我的个人博客"><a href="#欢迎来到我的个人博客" class="headerlink" title="欢迎来到我的个人博客!"></a>欢迎来到我的个人博客!</h1><p><strong>网站简介</strong><br>其实很早以前,我就想过建立自己的个人博客了,但都没有开始过。直到今天,我开始了。在这里,我将分享自己的学习经历,并将学习的知识点进行梳理,形成我自己的教程。其次,我希望在这里分享我感兴趣的,热爱的事情,不管是游戏还是科技,或是音乐。</p>
 <p>感谢你的访问,如果我的博客帮助了你,我会非常开心。<br>最后,我希望你能给我留下宝贵的建议,也希望我自己能坚持写博客。</p>
 
       
@@ -328,7 +328,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -347,7 +347,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>Markdown中,在一行的开始添加#来表示标题(#与文本之间有一个空格),#的数量表示标题的级,级越低,字体越大,从一级标题到六级标题逐渐变小。<br>也可采用在文本下加任意数量的 ==号来标识一级标题或--号来标识标题二级标题。</p>
+          <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>Markdown中,在一行的开始添加#来表示标题(#与文本之间有一个空格),#的数量表示标题的级,级越低,字体越大,从一级标题到六级标题逐渐变小。<br>也可采用在文本下加任意数量的 ==号来标识一级标题或--号来标识标题二级标题。</p>
 <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><p><code># 一级标题</code></p>
 <h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一级标题</span><br><span class="line">=========</span><br></pre></td></tr></table></figure>
 <h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p><code>## 二级标题</code></p>
@@ -547,21 +547,17 @@
 
 <h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>要创建脚注,需要使用<code>[^x]</code>符号,其中x可以为任意数字,但会自动转化为连续的数字,但不能含有空格。在博客的其他位置使用<code>[^x]: 文本</code>为脚注添加注释。 但是hexo的默认渲染器并不支持脚注功能,需要安装<code>hexo-reference</code>插件。<br>安装代码: <code>npm install hexo-reference</code><br>并在网站目录下的<code>_config.yml</code>文件中添加一下代码:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - hexo-reference</span><br></pre></td></tr></table></figure>
-<p>但是使用插件会有问题,需要把注释放在最后。</p>
-<p>这是一个脚注<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Hello!">[1]</span></a></sup>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个脚注<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Hello!">[1]</span></a></sup>。</span><br><span class="line">
+<p>但是使用插件会有问题,需要把注释放在最后。同时,插件似乎与next主题会产生bug,导致跳转按钮错位,我就不使用了。</p>
+<p>这是一个脚注<a href="Hello!">^1</a>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个脚注[^1]。</span><br><span class="line">[^1]:Hello!</span><br></pre></td></tr></table></figure>
 
-## 使用emoji表情
-使用emoji表情有两种方法
-1. 从[Emojipedia](https://emojipedia.org/)或其他源上复制表情,并粘贴在Markdown文件中。❤️
-2. 使用表情符号简码。在Markdown中以两个冒号夹着一个表情符号的名称(:表情符号的名称:)来构成表情号简码。而[此网站](https://gist.github.com/rxaviers/7360908)将为你提供各种表情符号简码。但注意,有些网站可能无法识别,比如说我的。
-:smile:		:tent:
-`:smile:`	`:tent:`
+<h2 id="使用emoji表情"><a href="#使用emoji表情" class="headerlink" title="使用emoji表情"></a>使用emoji表情</h2><p>使用emoji表情有两种方法</p>
+<ol>
+<li>从<a target="_blank" rel="noopener" href="https://emojipedia.org/">Emojipedia</a>或其他源上复制表情,并粘贴在Markdown文件中。❤️</li>
+<li>使用表情符号简码。在Markdown中以两个冒号夹着一个表情符号的名称(:表情符号的名称:)来构成表情号简码。而<a target="_blank" rel="noopener" href="https://gist.github.com/rxaviers/7360908">此网站</a>将为你提供各种表情符号简码。但注意,有些网站可能无法识别,比如说我的。<br>:smile:		:tent:<br><code>:smile:</code>	<code>:tent:</code></li>
+</ol>
+<h2 id="内嵌html标签"><a href="#内嵌html标签" class="headerlink" title="内嵌html标签"></a>内嵌html标签</h2><p>在Markdown中使用html语言,并不需要额外标注,可以直接使用。但在html中markdown不适用。</p>
 
-## 内嵌html标签
-在Markdown中使用html语言,并不需要额外标注,可以直接使用。但在html中markdown不适用。
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Hello!</span><br></pre></td></tr></table></figure><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Hello!<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
       
     </div>
 
@@ -650,7 +646,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Markdown语言简介"><a href="#Markdown语言简介" class="headerlink" title="Markdown语言简介"></a>Markdown语言简介</h2><p>Markdown语言是一种简单的标记语言,语法简单,排版简洁,一般为.md格式的文件,而Github等众多网站都支持Markdown的语法。</p>
+          <h2 id="Markdown语言简介"><a href="#Markdown语言简介" class="headerlink" title="Markdown语言简介"></a>Markdown语言简介</h2><p>Markdown语言是一种简单的标记语言,语法简单,排版简洁,一般为.md格式的文件,而Github等众多网站都支持Markdown的语法。</p>
 <h2 id="我与Markdown"><a href="#我与Markdown" class="headerlink" title="我与Markdown"></a>我与Markdown</h2><p>而这个网站所采用的就是markdown语言,这也是我开始学习Markdown的原因,我也乘着自己学习Markdown之时来编辑博客的第一个学习项目——Markdown语言。   </p>
 <h2 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h2><p><a target="_blank" rel="noopener" href="https://markdown.com.cn/">https://markdown.com.cn/</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/99319314">https://zhuanlan.zhihu.com/p/99319314</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/markdown/md-tutorial.html">https://www.runoob.com/markdown/md-tutorial.html</a></p>
 
