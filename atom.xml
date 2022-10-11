@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>NothingAlr8&#39;s Blog</title>
+  
+  
+  <link href="http://b-zz.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://b-zz.github.io/"/>
+  <updated>2022-10-11T10:08:43.044Z</updated>
+  <id>http://b-zz.github.io/</id>
+  
+  <author>
+    <name>NothingAlr8</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客新主题</title>
+    <link href="http://b-zz.github.io/2022/10/12/bo-ke-xin-zhu-ti/"/>
+    <id>http://b-zz.github.io/2022/10/12/bo-ke-xin-zhu-ti/</id>
+    <published>2022-10-12T02:15:53.000Z</published>
+    <updated>2022-10-11T10:08:43.044Z</updated>
+    
+    
+    
+    
+    <category term="Hexo" scheme="http://b-zz.github.io/categories/Hexo/"/>
+    
+    <category term="主题" scheme="http://b-zz.github.io/categories/Hexo/%E4%B8%BB%E9%A2%98/"/>
+    
+    
+    <category term="网站搭建" scheme="http://b-zz.github.io/tags/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="Hexo" scheme="http://b-zz.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go-前言</title>
+    <link href="http://b-zz.github.io/2022/10/11/go-qian-yan/"/>
+    <id>http://b-zz.github.io/2022/10/11/go-qian-yan/</id>
+    <published>2022-10-11T02:15:53.000Z</published>
+    <updated>2022-10-11T02:16:41.342Z</updated>
+    
+    
+    
+    
+    <category term="Go" scheme="http://b-zz.github.io/categories/Go/"/>
+    
+    <category term="前言" scheme="http://b-zz.github.io/categories/Go/%E5%89%8D%E8%A8%80/"/>
+    
+    
+    <category term="编程语言" scheme="http://b-zz.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="Go" scheme="http://b-zz.github.io/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://b-zz.github.io/2022/09/29/jian-yi-jia-mi/"/>
+    <id>http://b-zz.github.io/2022/09/29/jian-yi-jia-mi/</id>
+    <published>2022-09-29T06:43:45.436Z</published>
+    <updated>2022-09-29T06:43:45.436Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C语言中的数据</title>
+    <link href="http://b-zz.github.io/2022/09/23/c-yu-yan-zhong-de-shu-ju/"/>
+    <id>http://b-zz.github.io/2022/09/23/c-yu-yan-zhong-de-shu-ju/</id>
+    <published>2022-09-23T10:56:50.000Z</published>
+    <updated>2022-09-23T11:31:34.664Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;本章要点&quot;&gt;&lt;a href=&quot;#本章要点&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="C语言" scheme="http://b-zz.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="C语言中的数据" scheme="http://b-zz.github.io/categories/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="C语言" scheme="http://b-zz.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="编程语言" scheme="http://b-zz.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言概述</title>
+    <link href="http://b-zz.github.io/2022/09/23/c-yu-yan-gai-shu/"/>
+    <id>http://b-zz.github.io/2022/09/23/c-yu-yan-gai-shu/</id>
+    <published>2022-09-23T10:54:03.000Z</published>
+    <updated>2022-09-23T10:54:03.687Z</updated>
+    
+    
+    
+    
+    
+    <category term="C语言" scheme="http://b-zz.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="编程语言" scheme="http://b-zz.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown语法</title>
+    <link href="http://b-zz.github.io/2022/09/21/markdown-yu-fa/"/>
+    <id>http://b-zz.github.io/2022/09/21/markdown-yu-fa/</id>
+    <published>2022-09-21T04:05:12.000Z</published>
+    <updated>2022-09-22T00:15:23.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Markdown" scheme="http://b-zz.github.io/categories/Markdown/"/>
+    
+    
+    <category term="Markdown" scheme="http://b-zz.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown语言</title>
+    <link href="http://b-zz.github.io/2022/09/19/markdown-yu-yan/"/>
+    <id>http://b-zz.github.io/2022/09/19/markdown-yu-yan/</id>
+    <published>2022-09-19T10:12:04.000Z</published>
+    <updated>2022-09-21T08:50:29.601Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Markdown语言简介&quot;&gt;&lt;a href=&quot;#Markdown语言简介&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Markdown" scheme="http://b-zz.github.io/categories/Markdown/"/>
+    
+    
+    <category term="Markdown" scheme="http://b-zz.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>欢迎</title>
+    <link href="http://b-zz.github.io/2022/09/19/huan-ying/"/>
+    <id>http://b-zz.github.io/2022/09/19/huan-ying/</id>
+    <published>2022-09-18T22:30:02.000Z</published>
+    <updated>2022-09-19T10:47:16.651Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;欢迎来到我的个人博客&quot;&gt;&lt;a href=&quot;#欢迎来到我的个人博客&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
