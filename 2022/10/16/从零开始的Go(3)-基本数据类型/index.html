@@ -1,0 +1,857 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="NothingAlr8">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="常量与变量 常量 定义 使用const关键字来定义常量，用以存储不会改变的布尔型、整数、浮点数、字符串或是复数。 定义格式 ：const identifier [type] &#x3D; value 如： 1const Pi &#x3D; 3.14 其中[type]部分可以省略，编译器会自动识别其类型。 而[value]部分可以为表达式或无视精度限制(但在赋值给精度较小的变量时会错误发生或精度损失)。 [value]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始的Go(3)-基本数据类型">
+<meta property="og:url" content="https://nothingalr8.top/2022/10/16/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Go(3)-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="NothingAlr8&#39;s Blog">
+<meta property="og:description" content="常量与变量 常量 定义 使用const关键字来定义常量，用以存储不会改变的布尔型、整数、浮点数、字符串或是复数。 定义格式 ：const identifier [type] &#x3D; value 如： 1const Pi &#x3D; 3.14 其中[type]部分可以省略，编译器会自动识别其类型。 而[value]部分可以为表达式或无视精度限制(但在赋值给精度较小的变量时会错误发生或精度损失)。 [value]">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://nothingalr8.top/img/Post/index/Go/Go.jpg">
+<meta property="article:published_time" content="2022-10-16T05:35:23.000Z">
+<meta property="article:modified_time" content="2022-10-31T10:33:14.475Z">
+<meta property="article:author" content="NothingAlr8">
+<meta property="article:tag" content="Go">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nothingalr8.top/img/Post/index/Go/Go.jpg">
+  
+  
+  
+  <title>从零开始的Go(3)-基本数据类型 - NothingAlr8&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"nothingalr8.top","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"qNGixzCtQJY3HwUFrTkNsiSX-gzGzoHsz","app_key":"orTXqFjzLW1WtvyjIhhaZkpO","server_url":"https://qngixzct.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="NothingAlr8's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>NothingAlr8&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+                
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Post/banner/11.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="从零开始的Go(3)-基本数据类型"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-16 13:35" pubdate>
+          2022年10月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">从零开始的Go(3)-基本数据类型</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年10月31日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="常量与变量">常量与变量</h1>
+<h2 id="常量">常量</h2>
+<h3 id="定义">定义</h3>
+<p>使用<code>const</code>关键字来定义常量，用以存储不会改变的布尔型、整数、浮点数、字符串或是复数。</p>
+<p>定义格式 ：<code>const identifier [type] = value</code></p>
+<p>如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> Pi = <span class="hljs-number">3.14</span><br></code></pre></td></tr></table></figure>
+<p>其中<code>[type]</code>部分可以省略，编译器会自动识别其类型。</p>
+<p>而<code>[value]</code>部分可以为表达式或无视精度限制(但在赋值给精度较小的变量时会错误发生或精度损失)。</p>
+<p><code>[value]</code>部分不可以为自定义函数，但可以为内置函数，如<code>len()</code>。</p>
+<h3 id="特殊常量值iota与枚举用法">特殊常量值iota与枚举用法</h3>
+<p><code>iota</code>是go语言中的一个特殊常量值，只能被用于常量的赋值中。</p>
+<p>在每一个<code>const</code>关键字出现时，<code>iota</code>就会被重置为0，然后每出现一个常量，<code>iota</code>所代表的数值会自动增加1。</p>
+<p><code>iota</code>可以被用作枚举值，如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> (<br>    Female = <span class="hljs-literal">iota</span><br>    Male = <span class="hljs-literal">iota</span><br>    Unknown = <span class="hljs-literal">iota</span><br>)<br></code></pre></td></tr></table></figure>
+<p>其运行后，Female = 0，Male = 1，Unknown = 2。与以下代码效果类似：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> (<br>    Female = <span class="hljs-number">0</span><br>    Male = <span class="hljs-number">1</span><br>    Unknown = <span class="hljs-number">2</span><br>)<br></code></pre></td></tr></table></figure>
+<p>而这也可以简写成下面这种形式：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> (<br>    Female = <span class="hljs-literal">iota</span><br>    Male <br>    Unknown<br>)<br></code></pre></td></tr></table></figure>
+<p><code>iota</code>也可以被用在表达式中，如：<code>iota + 10</code></p>
+<h2 id="变量">变量</h2>
+<h3 id="定义-1">定义</h3>
+<p>使用<code>var</code>关键字来定义常量。</p>
+<p>定义格式：</p>
+<ol type="1">
+<li><code>var identifier [type]</code></li>
+<li><code>var identifier [type] = [value]</code></li>
+<li><code>identifier := [value]</code></li>
+</ol>
+<p>其中<code>[type]</code>部分一样可以省略，会由编译器来自动识，不过这不是所有时候都适用的。</p>
+<p>当一个变量被声明之后，会被自动赋予一个默认值：<code>int</code>为0，<code>float</code>为0.0，<code>bool</code>为false，<code>string</code>为空字符串，指针为nil。</p>
+<p>注意：若一个变量被定义后却未被使用会导致运行报错。</p>
+<h3 id="只写变量_">只写变量_</h3>
+<p><code>_</code>作为go中的一个只写变量，即只能对其赋值，而不能读取它的值，可以用它来舍弃一些不需要的值。如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">_,b = <span class="hljs-number">5</span>, <span class="hljs-number">7</span><br></code></pre></td></tr></table></figure>
+<p>最终5的值被抛弃了。</p>
+<h1 id="数据类型">数据类型</h1>
+<h2 id="布尔型">布尔型</h2>
+<p><code>bool</code>，用于存储true或false。</p>
+<h2 id="整数型">整数型</h2>
+<p>Go中的整数型分为<code>int</code>，<code>int8</code>，<code>int16</code>，<code>int32</code>，<code>int64</code>，<code>uint</code>，<code>uint8</code>，<code>uint16</code>，<code>uint32</code>，<code>uint64</code>，<code>rune</code>，<code>byte</code>。</p>
+<p>其中，<code>int</code> 和 <code>uint</code>
+一般为32位，而<code>int8</code>，<code>int16</code>等的位数取决于变量类型最后的数字。</p>
+<p>虽然<code>int</code>与<code>int32</code>在一般状况下大小相同，但是进行数据传递时一样需要类型转换，<code>uint</code>与<code>uint32</code>同理。</p>
+<p>同时，Go中还有两种特殊的整数类型：</p>
+<ul>
+<li><code>rune</code> ：与 <code>int32</code>
+等价，代表了一个Unicode码点。</li>
+<li><code>byte</code> ：与 <code>uint8</code>
+等价，代表了ASCII码的一个字符。</li>
+</ul>
+<h2 id="浮点型">浮点型</h2>
+<p>Go中的整数型分为<code>float32</code>和<code>float64</code>两种，其位数与整数型命名规则相同。</p>
+<p><code>float32</code>精确到小数点后7位，<code>float64</code>精确到小数点后15位。</p>
+<p>应该尽可能地使用<code>float64</code>，因为<code>math</code>
+包中所有有关数学运算的函数都会要求接收这个类型。</p>
+<h2 id="复数型">复数型</h2>
+<p>在Go中用<code>complex64</code>来表示32位实数和虚数，用<code>complex128</code>来表示64位实数和虚数。</p>
+<p>一个复数使用<code>re+imI</code>来表示，其中<code>re</code>代表实数部分，<code>im</code>代表虚数部分，、I`
+代表根号负1，如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> c1 <span class="hljs-type">complex64</span> = <span class="hljs-number">5</span> + <span class="hljs-number">10i</span><br></code></pre></td></tr></table></figure>
+<p>函数<code>real(c)</code>和<code>imag(c)</code>可以分别获得相应的实数和虚数部分。</p>
+<h2 id="字符型">字符型</h2>
+<p>严格来说，Go语言中没有字符类型，只是一种特殊的整数类型。</p>
+<h3 id="byte">byte</h3>
+<p><code>byte</code>类型是<code>uint8</code>的别称，可以表示单个ASCII字符。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> ch <span class="hljs-type">byte</span> = <span class="hljs-string">&#x27;A&#x27;</span>	<span class="hljs-comment">//直接通过字符赋值</span><br><span class="hljs-keyword">var</span> ch <span class="hljs-type">byte</span> = <span class="hljs-number">65</span> 	<span class="hljs-comment">//通过十进制ASCII码赋值</span><br><span class="hljs-keyword">var</span> ch <span class="hljs-type">byte</span> = <span class="hljs-string">&#x27;\x41&#x27;</span>	<span class="hljs-comment">//通过十六进制ASCII码赋值</span><br></code></pre></td></tr></table></figure>
+<h3 id="rune">rune</h3>
+<p><code>rune</code>类型是<code>int32</code>的别称，用于表示单个Unicode(UTF-8)字符。</p>
+<p>在书写 Unicode
+字符时，需要在16进制数之前加上前缀<code>\u</code>或者<code>\U</code>。<code>\u</code>前缀跟着4位十六进制表示2个字节的Unicode字符，而<code>\U</code>前缀跟着8位十六进制表示2个字节以上的Unicode字符。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> ch <span class="hljs-type">rune</span> = <span class="hljs-string">&#x27;\u0041&#x27;</span>	<br><span class="hljs-keyword">var</span> ch2 <span class="hljs-type">rune</span> = <span class="hljs-string">&#x27;\u03B2&#x27;</span><br><span class="hljs-keyword">var</span> ch3 <span class="hljs-type">rune</span> = <span class="hljs-string">&#x27;\U00101234&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>包<code>unicode</code>包含了一些针对测试字符的非常有用的函数，如：</p>
+<ul>
+<li>判断是否为字母：<code>unicode.IsLetter(ch)</code></li>
+<li>判断是否为数字：<code>unicode.IsDigit(ch)</code></li>
+<li>判断是否为空白符号：<code>unicode.IsSpace(ch)</code></li>
+</ul>
+<p>其中<code>ch</code>代表字符，这些函数返回一个布尔值。</p>
+<h2 id="类型别名">类型别名</h2>
+<p>在使用某个类型时，可以使用<code>type</code>关键字给它起另一个名字，用于简化名称或解决名称冲突。</p>
+<p>格式： <code>type [newname] [type]</code></p>
+<p>如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> TZ <span class="hljs-type">int</span>		<span class="hljs-comment">//TZ就是int的新名称</span><br><span class="hljs-keyword">var</span> a TZ	<span class="hljs-comment">//定义a变量为TZ类型，即为int类型</span><br></code></pre></td></tr></table></figure>
+<p>但实际上，类型别名得到的新类型并非和原类型完全相同，新类型不会拥有原类型所附带的方法。</p>
+<h2 id="类型转换">类型转换</h2>
+<p>格式：<code>valueOfTypeB = typeB(valueOfTypeA)</code></p>
+<p>如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> a <span class="hljs-type">int16</span><br><span class="hljs-keyword">var</span> b <span class="hljs-type">int</span> = <span class="hljs-number">10</span><br>a = <span class="hljs-type">int16</span>(b)<br></code></pre></td></tr></table></figure>
+<p>注意：类型转换只能在定义正确的情况下转换成功，例如从一个取值范围较小的类型转换到一个取值范围较大的类型（将
+<code>int16</code> 转换为
+<code>int32</code>）。当从一个取值范围较大的类型转换到取值范围较小的类型时（将
+<code>int32</code> 转换为 <code>int16</code> 或将 <code>float32</code>
+转换为 <code>int</code>），会发生精度丢失（截断）的情况。</p>
+<p>只有相同底层类型的变量之间可以进行相互转换（如将<code>int16</code>类型转换成<code>int32</code>类型），不同底层类型的变量相互转换时会引发编译错误（如将<code>bool</code>类型转换为<code>int</code>类型）。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Go/" class="category-chain-item">Go</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Go/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Go/" class="category-chain-item">从零开始的Go</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Go/">#Go</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/16/%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%BF%97(4)-%E8%AF%84%E8%AE%BA%E6%94%B9%E5%8A%A8&amp;%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/" title="博客日志(4)-评论改动&amp;代码高亮">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">博客日志(4)-评论改动&amp;代码高亮</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Go(2)-%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E4%B8%8E%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/" title="从零开始的Go(2)-基本结构与命名规则">
+                        <span class="hidden-mobile">从零开始的Go(2)-基本结构与命名规则</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.7/twikoo.all.min.js', function() {
+        var options = Object.assign(
+          {"envId":"https://twikoo.nothingalr8.top/","region":"ap-shanghai","path":"window.location.pathname"},
+          {
+            el: '#twikoo',
+            path: 'window.location.pathname',
+            onCommentLoaded: function() {
+              var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+              Fluid.plugins.imageCaption(imgSelector);
+              Fluid.plugins.fancyBox(imgSelector);
+            }
+          }
+        )
+        twikoo.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

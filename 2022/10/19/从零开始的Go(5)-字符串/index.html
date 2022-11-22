@@ -1,0 +1,874 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="NothingAlr8">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="字符串 在Go中，字符串是 UTF-8 字符的一个序列，一个字符可能占用1个字节(ASCII码)，或是2~4个字节。 定义 通过以下两种形式定义字符串： 12var s1 strings2 :&#x3D; &quot;Hello!&quot; 索引与切片 索引 可以将一个字符串看成数组，来获取其某一字节上的值。类似数组，string[0]对应第一个字节。 1234s1 :&#x3D; &quot;hello&amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始的Go(5)-字符串">
+<meta property="og:url" content="https://nothingalr8.top/2022/10/19/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Go(5)-%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+<meta property="og:site_name" content="NothingAlr8&#39;s Blog">
+<meta property="og:description" content="字符串 在Go中，字符串是 UTF-8 字符的一个序列，一个字符可能占用1个字节(ASCII码)，或是2~4个字节。 定义 通过以下两种形式定义字符串： 12var s1 strings2 :&#x3D; &quot;Hello!&quot; 索引与切片 索引 可以将一个字符串看成数组，来获取其某一字节上的值。类似数组，string[0]对应第一个字节。 1234s1 :&#x3D; &quot;hello&amp;quot">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://nothingalr8.top/img/Post/index/Go/Go.jpg">
+<meta property="article:published_time" content="2022-10-19T09:35:23.000Z">
+<meta property="article:modified_time" content="2022-10-31T10:33:09.304Z">
+<meta property="article:author" content="NothingAlr8">
+<meta property="article:tag" content="Go">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nothingalr8.top/img/Post/index/Go/Go.jpg">
+  
+  
+  
+  <title>从零开始的Go(5)-字符串 - NothingAlr8&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"nothingalr8.top","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"qNGixzCtQJY3HwUFrTkNsiSX-gzGzoHsz","app_key":"orTXqFjzLW1WtvyjIhhaZkpO","server_url":"https://qngixzct.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="NothingAlr8's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>NothingAlr8&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+                
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Post/banner/6.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="从零开始的Go(5)-字符串"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-19 17:35" pubdate>
+          2022年10月19日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          40 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">从零开始的Go(5)-字符串</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年10月31日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="字符串">字符串</h1>
+<p>在Go中，字符串是 <code>UTF-8</code>
+字符的一个序列，一个字符可能占用1个字节(ASCII码)，或是2~4个字节。</p>
+<h2 id="定义">定义</h2>
+<p>通过以下两种形式定义字符串：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> s1 <span class="hljs-type">string</span><br>s2 := <span class="hljs-string">&quot;Hello!&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="索引与切片">索引与切片</h2>
+<h3 id="索引">索引</h3>
+<p>可以将一个字符串看成数组，来获取其某一字节上的值。类似数组，string[0]对应第一个字节。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello&quot;</span><br>fmt.Println(s1[<span class="hljs-number">0</span>])	<span class="hljs-comment">//结果为104，对于h的ASCII码</span><br>fmt.Println(s1[<span class="hljs-number">3</span>])	<span class="hljs-comment">//结果为108，对于l的ASCII码</span><br>fmt.Println(<span class="hljs-type">string</span>(s1[<span class="hljs-number">3</span>]))	<span class="hljs-comment">//加上string()函数,则输出字符</span><br></code></pre></td></tr></table></figure>
+<p>而对于中文等多字节字符，并不可以直接使用索引来得出各位字符，只能得到某个字节的值，需要先转换为rune切片：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go">s2 := <span class="hljs-string">&quot;你好！&quot;</span><br>fmt.Println(([]<span class="hljs-type">rune</span>(s2))[<span class="hljs-number">0</span>])	<span class="hljs-comment">//结果为20320，为4f60的十进制表示形式，为&#x27;你&#x27;的UTF-8编码</span><br>fmt.Println(<span class="hljs-type">string</span>(([]<span class="hljs-type">rune</span>(s2))[<span class="hljs-number">0</span>]))	<span class="hljs-comment">//结果为&quot;你&quot;</span><br></code></pre></td></tr></table></figure>
+<h3 id="切片">切片</h3>
+<p>通过以下方式来获取字符串的某几个连续字节上的值：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello!&quot;</span><br>fmt.Println(s1[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>])	<span class="hljs-comment">// &quot;hello&quot;	遵循向前取整的规则，取到索引为4的字节</span><br>fmt.Println(s1[:<span class="hljs-number">5</span>])	<span class="hljs-comment">// &quot;hello&quot;	前一个数为空，即从0开始</span><br>fmt.Println(s1[<span class="hljs-number">4</span>:])	<span class="hljs-comment">// &quot;o!&quot;	后一个数为空，即到最后一个字符为止</span><br>fmt.Println(s1[:]) 	<span class="hljs-comment">// &quot;hello!&quot;	若两个字符都为空，则取整个字符串</span><br></code></pre></td></tr></table></figure>
+<p>同样的，对与中文字符，需要先转化为<code>rune</code>切片：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go">s2 := <span class="hljs-string">&quot;你好！&quot;</span><br>fmt.Println(([]<span class="hljs-type">rune</span>(s2))[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>])	<span class="hljs-comment">//结果为[20320 22909]，为&#x27;你&#x27;与&#x27;好&#x27;的UTF-8编码</span><br>fmt.Println(<span class="hljs-type">string</span>(([]<span class="hljs-type">rune</span>(s2))[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>]))	<span class="hljs-comment">//加上string()函数，则输出&quot;你好&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="编辑">编辑</h2>
+<p>在Go中，无法直接对string的某一位上的值进行改变，需要先进行类型的转化。</p>
+<p>运行以下命令会出错：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello!&quot;</span><br>s1[<span class="hljs-number">0</span>] = <span class="hljs-string">&#x27;1&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>如果是单一的ASCII码组成的字符串，则可以转化成<code>[]byte</code>类型，而含有多字节字符的则需转化位<code>[]rune</code>类型。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello!&quot;</span><br>s1_ := []<span class="hljs-type">byte</span>(s1)	<span class="hljs-comment">//转化成[]byte类型</span><br>s1_[<span class="hljs-number">0</span>] = <span class="hljs-string">&#x27;H&#x27;</span><br>fmt.Println(<span class="hljs-type">string</span>(s1_))	<span class="hljs-comment">//结果为&quot;Hello!&quot;</span><br><br>s2 := <span class="hljs-string">&quot;你好！&quot;</span><br>s2_ := []<span class="hljs-type">rune</span>(s2)	<span class="hljs-comment">//转化成[]rune类型</span><br>s2_[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;您&quot;</span><br>fmt.Println(<span class="hljs-type">string</span>(s2_))	<span class="hljs-comment">//结果为&quot;您好！&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="拼接与比较">拼接与比较</h2>
+<h3 id="拼接">拼接</h3>
+<p>使用<code>+</code>对字符串进行拼接（当然可以使用<code>+=</code>），如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;Hello &quot;</span><br>s2 := <span class="hljs-string">&quot;World!&quot;</span><br>s3 := s1+s2		<span class="hljs-comment">//s3结果为&quot;Hello World!&quot;</span><br></code></pre></td></tr></table></figure>
+<h3 id="比较">比较</h3>
+<p>字符串的比较是按字节比较，从第一个字节开始比较，大的为字符串的第一个字节大的字符串，如果第一个字节一样大，则顺次比较。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;ab&quot;</span><br>s2 := <span class="hljs-string">&quot;123&quot;</span><br>fmt.Println(s1 &gt; s2) 	<span class="hljs-comment">//结果为true</span><br></code></pre></td></tr></table></figure>
+<h2 id="求长度">求长度</h2>
+<p>可以通过<code>len()</code>函数来获取字符串的长度，但是这个函数实际上求的是字符串的字节长度。</p>
+<p>可以通过以下代码来看出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;Hello!&quot;</span><br>fmt.Println(<span class="hljs-built_in">len</span>(s1))	<span class="hljs-comment">//得出的结果为6，一个ASCII字符占1个字节</span><br><br>s2 :=  <span class="hljs-string">&quot;你好！&quot;</span><br>fmt.Println(<span class="hljs-built_in">len</span>(s2))	<span class="hljs-comment">//得出的结果为9，在UTF-8中，每一个中文及全角字符占3个字节</span><br></code></pre></td></tr></table></figure>
+<p>那要如何计算出除ASCII码之外字符的实际长度呢？也需转化为rune切片：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go">s2 :=  <span class="hljs-string">&quot;你好！&quot;</span><br>fmt.Println(<span class="hljs-built_in">len</span>([]<span class="hljs-type">rune</span>(s2)))	<span class="hljs-comment">//得出结果为3</span><br></code></pre></td></tr></table></figure>
+<h1 id="相关包">相关包</h1>
+<h2 id="strings包">strings包</h2>
+<p>strings包为go提供了一系列对字符串进行操作的函数。</p>
+<h3 id="前缀与后缀">前缀与后缀</h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go">strings.HasPrefix(s, prefix <span class="hljs-type">string</span>) <span class="hljs-type">bool</span>	<span class="hljs-comment">//判断前缀，若对与字符串s来说，前缀为prefix，则返回true，反之则返回false</span><br>strings.HasSuffix(s, suffix <span class="hljs-type">string</span>) <span class="hljs-type">bool</span>	<span class="hljs-comment">//判断后缀，同判断前缀</span><br></code></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello&quot;</span><br>fmt.Println(strings.HasPrefix(s1,<span class="hljs-string">&quot;h&quot;</span>))	<span class="hljs-comment">//结果为true</span><br></code></pre></td></tr></table></figure>
+<h3 id="包含">包含</h3>
+<p><code>strings.Contains(s, substr string) bool</code></p>
+<p>判断字符串<code>s</code>是否包含<code>substr</code>部分，若包含，返回true，反之则返回false</p>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello&quot;</span><br>fmt.Println(strings.Contains(s1,<span class="hljs-string">&quot;hell&quot;</span>))	<span class="hljs-comment">//结果为true</span><br>fmt.Println(strings.Contains(s1,<span class="hljs-string">&quot;helll&quot;</span>))	<span class="hljs-comment">//结果为false</span><br></code></pre></td></tr></table></figure>
+<h3
+id="获取某字符串在另一字符串中位置索引">获取某字符串在另一字符串中位置(索引)</h3>
+<p>返回为str在字符串s中的第一个索引位置，若str为字符串，则返回第一个字符对应的索引位置。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go">strings.Index(s, str <span class="hljs-type">string</span>) <span class="hljs-type">int</span>	<br>strings.LastIndex(s, str <span class="hljs-type">string</span>) <span class="hljs-type">int</span>	<span class="hljs-comment">//规则同Index，但是返回最后一个符合的索引位置</span><br>strings.IndexRune(s <span class="hljs-type">string</span>, r <span class="hljs-type">rune</span>) <span class="hljs-type">int</span>		<span class="hljs-comment">//适用于非ASCII字符串</span><br></code></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello&quot;</span><br>fmt.Println(strings.Index(s1, <span class="hljs-string">&quot;l&quot;</span>))	<span class="hljs-comment">//结果为2</span><br>fmt.Println(strings.Index(s1, <span class="hljs-string">&quot;el&quot;</span>))	<span class="hljs-comment">//结果为1</span><br>fmt.Println(strings.LastIndex(s1, <span class="hljs-string">&quot;l&quot;</span>))	<span class="hljs-comment">//结果为3</span><br></code></pre></td></tr></table></figure>
+<h3 id="出现次数统计">出现次数统计</h3>
+<p><code>strings.Count(s, str string) int</code></p>
+<p>统计<code>str</code>在字符串<code>s</code>中出现的次数，并返回。</p>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello&quot;</span><br>fmt.Println(strings.Count(s1, <span class="hljs-string">&quot;l&quot;</span>))	<span class="hljs-comment">//结果为2</span><br>fmt.Println(strings.Count(s1, <span class="hljs-string">&quot;e&quot;</span>))	<span class="hljs-comment">//结果为1</span><br></code></pre></td></tr></table></figure>
+<h3 id="重复字符串">重复字符串</h3>
+<p>重复<code>count</code>次字符串<code>s</code>，并返回。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">strings.Repeat(s, count <span class="hljs-type">int</span>) <span class="hljs-type">string</span><br></code></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello &quot;</span><br>fmt.Println(strings.Repeat(s1, <span class="hljs-number">3</span>))<br></code></pre></td></tr></table></figure>
+<h3 id="从字符串中读取内容">从字符串中读取内容</h3>
+<p>函数 <code>strings.NewReader()</code> 用于生成一个
+<code>Reader</code> 并读取字符串中的内容，然后返回指向该
+<code>Reader</code> 的指针，从其它类型读取内容的函数还有：</p>
+<p><code>Read()</code>从<code>[]byte</code>中读取内容。
+<code>ReadByte()</code> 和 <code>ReadRune()</code>从字符串中读取下一个
+<code>byte</code> 或者 <code>rune</code>。</p>
+<h3 id="字符串替换">字符串替换</h3>
+<p><code>strings.Replace(str, old, new string, n int) string</code></p>
+<p>将字符串<code>str</code>中的前 <code>n</code>
+个字符串<code>old</code>替换为字符串<code>new</code>，并返回一个新的字符串。如果<code>n = -1</code>则替换所有字符串<code>old</code>为字符串<code>new</code></p>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello&quot;</span><br>fmt.Println(strings.Replace(s1,<span class="hljs-string">&quot;l&quot;</span>,<span class="hljs-string">&quot;o&quot;</span>,<span class="hljs-number">1</span>))	<span class="hljs-comment">//heolo</span><br>fmt.Println(strings.Replace(s1,<span class="hljs-string">&quot;l&quot;</span>,<span class="hljs-string">&quot;o&quot;</span>,<span class="hljs-number">-1</span>))	<span class="hljs-comment">//heooo</span><br></code></pre></td></tr></table></figure>
+<h3 id="修剪字符串">修剪字符串</h3>
+<p>使用 <code>strings.TrimSpace()</code>
+来剔除字符串开头和结尾的空白符号</p>
+<p>如果想要剔除指定字符，则可以使用 <code>strings.Trim(s, "cut")</code>
+来将开头和结尾的 <code>cut</code> 部分去除掉</p>
+<p>如果只想剔除开头或者结尾的字符串，则可以使用
+<code>strings.TrimLeft</code> 或者 <code>strings.TrimRight</code>
+来实现</p>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot; hello &quot;</span>	<br>s2 := <span class="hljs-string">&quot;hellhe&quot;</span>	<br>fmt.Println(strings.TrimSpace(s1))	<span class="hljs-comment">//hello</span><br>fmt.Println(strings.Trim(s2, <span class="hljs-string">&quot;he&quot;</span>))	<span class="hljs-comment">//ll</span><br>fmt.Println(strings.TrimLeft(s2, <span class="hljs-string">&quot;he&quot;</span>))	<span class="hljs-comment">//llhe</span><br>fmt.Println(strings.TrimRight(s2, <span class="hljs-string">&quot;he&quot;</span>))	<span class="hljs-comment">//hell</span><br></code></pre></td></tr></table></figure>
+<h3 id="大小写转换">大小写转换</h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go">strings.ToLower(s) <span class="hljs-type">string</span>	<span class="hljs-comment">//将字符串s中的所有大写字母转换为小写字母</span><br>strings.ToUpper(s) <span class="hljs-type">string</span>	<span class="hljs-comment">//将字符串s中的所有小写字母转换为大写字母</span><br></code></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;hello!&quot;</span><br>fmt.Println(strings.ToUpper(s1))<br>s2 := <span class="hljs-string">&quot;HeLLO!&quot;</span><br>fmt.Println(strings.ToLower(s2))<br></code></pre></td></tr></table></figure>
+<h2 id="strconv包">strconv包</h2>
+<p>strconv包为go提供了许多字符串与其他类型转换的函数。</p>
+<h3 id="数字转换字符串">数字转换字符串</h3>
+<p><code>strconv.Itoa(i int) string</code></p>
+<p>返回数字 <code>i</code> 所表示的字符串类型的十进制数</p>
+<p><code>strconv.FormatFloat(f float64, fmt byte, prec int, bitSize int) string</code></p>
+<p>将 64 位浮点型的数字<code>f</code>转换为字符串并返回，其中
+<code>fmt</code> 表示格式（其值可以是 'b'、'e'、'f' 或
+'g'），<code>prec</code> 表示精度，<code>bitSize</code> 则使用 32 表示
+float32，用 64 表示 float64</p>
+<h3 id="字符串转换数字">字符串转换数字</h3>
+<h4 id="转换为整形">转换为整形</h4>
+<p><code>strconv.Atoi(s string) (i int, err error)</code></p>
+<p>将数字字符串<code>s</code>转化为整数<code>i</code>，并返回，如果产生错误，返回<code>err</code></p>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs go">s1 := <span class="hljs-string">&quot;123&quot;</span><br>a, err := strconv.Atoi(s1) <br><span class="hljs-comment">// 若不需要返回错误，可以直接这样写：</span><br><span class="hljs-comment">//a, _ := strconv.Atoi(s1) </span><br>fmt.Println(a)<br>fmt.Println(err)<br></code></pre></td></tr></table></figure>
+<h4 id="转换为浮点型">转换为浮点型</h4>
+<p><code>strconv.ParseFloat(s string, bitSize int) (f float64, err error)</code></p>
+<p>将数字字符串(可以含小数)<code>s</code>转换为浮点型<code>f</code>，如果产生错误，返回<code>err</code>，<code>bitSize</code>可以位32或64，表示float32或float64</p>
+<h3 id="其他">其他</h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">strconv.IntSize	<span class="hljs-comment">//获取程序运行的操作系统平台下 int 类型所占的位数</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Go/" class="category-chain-item">Go</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Go/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Go/" class="category-chain-item">从零开始的Go</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Go/">#Go</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/22/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Go(6)-%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/" title="从零开始的Go(6)-控制结构">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">从零开始的Go(6)-控制结构</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/18/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Go(4)-%E8%BF%90%E7%AE%97/" title="从零开始的Go(4)-运算">
+                        <span class="hidden-mobile">从零开始的Go(4)-运算</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.7/twikoo.all.min.js', function() {
+        var options = Object.assign(
+          {"envId":"https://twikoo.nothingalr8.top/","region":"ap-shanghai","path":"window.location.pathname"},
+          {
+            el: '#twikoo',
+            path: 'window.location.pathname',
+            onCommentLoaded: function() {
+              var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+              Fluid.plugins.imageCaption(imgSelector);
+              Fluid.plugins.fancyBox(imgSelector);
+            }
+          }
+        )
+        twikoo.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
