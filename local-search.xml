@@ -8,7 +8,7 @@
     <link href="/2022/11/21/vim%E7%AC%94%E8%AE%B0/"/>
     <url>/2022/11/21/vim%E7%AC%94%E8%AE%B0/</url>
     
-    <content type="html"><![CDATA[<h1 id="vim概述">vim概述</h1><p>vim是一个高门槛的文本编辑器，是由vi升级改良而发展出来的。</p><h1 id="vim键盘图">vim键盘图</h1><p>想要流利地使用vim，就要去记键盘图。</p><h2 id="中文版">中文版</h2><p><img src="vim-ch.gif" /></p><h2 id="英文版">英文版</h2><p>很多时候，结合英文版的键盘图可以提高记忆的效率。</p><p><img src="vim-en.gif" /></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="vim概述">vim概述</h1><p>vim是一个高门槛的文本编辑器，是由vi升级改良而发展出来的。</p><h1 id="vim键盘图">vim键盘图</h1><p>想要流利地使用vim，就要去记键盘图。</p><h2 id="中文版">中文版</h2><p><img src="img/vim笔记/vim-ch.gif" /></p><h2 id="英文版">英文版</h2><p>很多时候，结合英文版的键盘图可以提高记忆的效率。</p><p><img src="img/vim笔记/vim-en.gif" /></p>]]></content>
     
     
     
@@ -172,9 +172,9 @@
     
     <tags>
       
-      <tag>游戏</tag>
-      
       <tag>随笔</tag>
+      
+      <tag>游戏</tag>
       
     </tags>
     
