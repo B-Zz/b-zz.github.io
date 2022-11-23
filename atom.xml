@@ -6,7 +6,7 @@
   <link href="https://nothingalr8.top/atom.xml" rel="self"/>
   
   <link href="https://nothingalr8.top/"/>
-  <updated>2022-11-23T11:02:30.000Z</updated>
+  <updated>2222-02-22T14:22:22.000Z</updated>
   <id>https://nothingalr8.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>来自未来的欢迎</title>
+    <link href="https://nothingalr8.top/2222/02/22/%E6%9D%A5%E8%87%AA%E6%9C%AA%E6%9D%A5%E7%9A%84%E6%AC%A2%E8%BF%8E/"/>
+    <id>https://nothingalr8.top/2222/02/22/%E6%9D%A5%E8%87%AA%E6%9C%AA%E6%9D%A5%E7%9A%84%E6%AC%A2%E8%BF%8E/</id>
+    <published>2222-02-22T14:22:22.000Z</published>
+    <updated>2222-02-22T14:22:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="欢迎">欢迎</h1><p>非常高兴你能访问我的博客，欢迎！</p><p>想必你肯定好奇，为什么这是来自未来的欢迎呢，请你仔细看一下博客的日期。</p><p>之所以这样做，是因为我的博客默认没有置顶功能，只能通过这种方式在首页置顶了，但这何尝不是一种有趣的方式呢。</p><h1 id="你好">你好</h1><p>这里是NothingAlr8的个人博客，一个平平无奇的小博客，期待你的探索。</p><p>如果我的博客有幸帮到了你或是给你带去了乐趣的话，我会非常高兴的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;欢迎&quot;&gt;欢迎&lt;/h1&gt;
+&lt;p&gt;非常高兴你能访问我的博客，欢迎！&lt;/p&gt;
+&lt;p&gt;想必你肯定好奇，为什么这是来自未来的欢迎呢，请你仔细看一下博客的日期。&lt;/p&gt;
+&lt;p&gt;之所以这样做，是因为我的博客默认没有置顶功能，只能通过这种方式在首页置顶了，但这何尝不是一种有趣的方</summary>
+      
+    
+    
+    
+    
+    <category term="欢迎" scheme="https://nothingalr8.top/tags/%E6%AC%A2%E8%BF%8E/"/>
+    
+  </entry>
   
   <entry>
     <title>博客日志(5)</title>
@@ -53,16 +78,16 @@
     <link href="https://nothingalr8.top/2022/11/21/vim%E7%AC%94%E8%AE%B0/"/>
     <id>https://nothingalr8.top/2022/11/21/vim%E7%AC%94%E8%AE%B0/</id>
     <published>2022-11-21T10:12:04.000Z</published>
-    <updated>2022-11-23T11:07:34.517Z</updated>
+    <updated>2022-11-23T11:27:02.867Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="vim概述">vim概述</h1><p>vim是一个高门槛(在我看来，可能是我太菜了)的文本编辑器，是由vi升级改良而发展出来的，比vi好用一点了(只是我的第一印象)。</p><p>想要熟练地使用vim是一件比较难的事，但是更难的是克服不再使用常用的编辑器，转而使用一个新东西。在一开始，编辑效率会大大下降，但是之后，你会越来越快。</p><h1 id="vim键盘图">vim键盘图</h1><p>想要流利地使用vim，就要去记键盘图。</p><h2 id="中文版">中文版</h2><p><img src="vim-cn.gif" /></p><h2 id="英文版">英文版</h2><p>很多时候，结合英文版的键盘图可以提高记忆的效率。</p><p><img src="vim-en.gif" /></p><h1 id="使用笔记">使用笔记</h1><h2 id="界面">界面</h2><p><img src="vim-sc.png" /></p><h2 id="模式">模式</h2><p>vim共有3种模式：</p><ol type="1"><li>普通模式(normal mode)</li><li>插入模式(insert mode)</li><li>命令模式(command mode)</li></ol><h3 id="普通模式">普通模式</h3><p>vim的初始模式，在其他模式下按下<code>Esc</code>键返回。在此模式下，通过按下按键来浏览文本或是进入其他模式。</p><h4 id="移动光标浏览">移动光标(浏览)</h4><table><thead><tr class="header"><th>快捷键</th><th>描述</th></tr></thead><tbody><tr class="odd"><td><code>h</code> <code>j</code> <code>k</code> <code>l</code></td><td>依次替代<code>左</code> <code>下</code> <code>上</code><code>右</code> 四个方向键</td></tr><tr class="even"><td><code>w</code> / <code>W</code></td><td>移动到下一个单词的开头，小写表示以非字母为分割单位，大写表示之以空格作为分割单位</td></tr><tr class="odd"><td><code>e</code> / <code>E</code></td><td>移动到下一个单词的结尾，大小写区别同上</td></tr><tr class="even"><td><code>b</code> / <code>B</code></td><td>动到上一个单词的开头，大小写区别同上</td></tr><tr class="odd"><td><code>f</code> {char}</td><td>在此行从光标开始搜索{char}字符，按下<code>;</code>跳转到下个字符，按下<code>,</code>跳转到前一个字符(可以到光标之前)</td></tr><tr class="even"><td><code>F</code>{char}</td><td>同<code>f</code>，但是自光标往前搜索</td></tr><tr class="odd"><td><code>0</code></td><td>移动到行首</td></tr><tr class="even"><td><code>$</code></td><td>移动到行尾</td></tr><tr class="odd"><td><code>^</code></td><td>移动到当前行的第一个非空字符</td></tr><tr class="even"><td><code>nG</code></td><td>移动到第<code>n</code>行(n表示一个数字)</td></tr><tr class="odd"><td><code>gg</code></td><td>移动到第一行</td></tr><tr class="even"><td><code>GG</code></td><td>移动到最后一行</td></tr><tr class="odd"><td><code>&#123;</code></td><td>移动到当前段落的开头</td></tr><tr class="even"><td><code>&#125;</code></td><td>移动到当前段落的末尾</td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr></tbody></table><h3 id="插入模式">插入模式</h3><p>在普通模式下按下<code>i</code>进入，在此模式下，你可以修改文本，进行编辑，同时也可以通过一些快捷键来对文本进行修改。</p><h4 id="快捷键">快捷键</h4><table><thead><tr class="header"><th>快捷键</th><th>描述</th></tr></thead><tbody><tr class="odd"><td><code>ctrl + h</code></td><td>删除光标前面的字符，类似退格键(Backspace)</td></tr><tr class="even"><td><code>ctrl + w</code></td><td>删除光标前面的单词</td></tr><tr class="odd"><td><code>ctrl + u</code></td><td>删除光标前面的该行所有内容</td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr></tbody></table><h3 id="命令模式">命令模式</h3><p>在普通模式下按下<code>：</code>键后输入命令</p><h4 id="常用命令">常用命令</h4><table><thead><tr class="header"><th>命令</th><th>描述</th></tr></thead><tbody><tr class="odd"><td><code>:quit</code></td><td>退出vim，可以缩写为<code>:q</code></td></tr><tr class="even"><td><code>:write</code></td><td>保存，可以缩写为<code>:w</code>，保存退出可以缩写为<code>:wq</code></td></tr><tr class="odd"><td><code>:n</code></td><td>移动光标到当前文件的第<code>n</code>行（n表示一个数字），同普通模式下的<code>nG</code></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr></tbody></table><p>注意：在命令之后增加<code>!</code>表示强制，如<code>:q!</code>表示强制退出(若修改后不想保存就可以使用)，<code>:wq!</code>表示强制保存并退出。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="概述">概述</h1><p>vim是一个高门槛(在我看来，可能是我太菜了)的文本编辑器，是由vi升级改良而发展出来的，比vi好用一点了(只是我的第一印象)。</p><p>想要熟练地使用vim是一件比较难的事，但是更难的是克服不再使用常用的编辑器，转而使用一个新东西。在一开始，编辑效率会大大下降，但是之后，你会越来越快。</p><h1 id="使用方法">使用方法</h1><ul><li>Linux：可以通过包安装，或是像我一样直接使用apt安装</li><li>VS code：安装vim插件并启用即可</li><li>jetbrians IDE：安装idea vim插件并启用即可</li><li>Typora：目前没有办法直接在Typora中使用vim，但是可以用vim打开md文件，并用Typora打开同一文件，在保存后可以预览，但我觉得这有点蠢</li></ul><h1 id="vim键盘图">vim键盘图</h1><p>想要流利地使用vim，就要去记键盘图。</p><h2 id="中文版">中文版</h2><p><img src="vim-cn.gif" /></p><h2 id="英文版">英文版</h2><p>很多时候，结合英文版的键盘图可以提高记忆的效率。</p><p><img src="vim-en.gif" /></p><h1 id="使用">使用</h1><h2 id="界面">界面</h2><p><img src="vim-sc.png" /></p><h2 id="模式">模式</h2><p>vim共有3种模式：</p><ol type="1"><li>普通模式(normal mode)</li><li>插入模式(insert mode)</li><li>命令模式(command mode)</li></ol><h3 id="普通模式">普通模式</h3><p>vim的初始模式，在其他模式下按下<code>Esc</code>键返回。在此模式下，通过按下按键来浏览文本或是进入其他模式。</p><h4 id="移动光标浏览">移动光标(浏览)</h4><table><thead><tr class="header"><th>快捷键</th><th>描述</th></tr></thead><tbody><tr class="odd"><td><code>h</code> <code>j</code> <code>k</code> <code>l</code></td><td>依次替代<code>左</code> <code>下</code> <code>上</code><code>右</code> 四个方向键</td></tr><tr class="even"><td><code>w</code> / <code>W</code></td><td>移动到下一个单词的开头，小写表示以非字母为分割单位，大写表示之以空格作为分割单位</td></tr><tr class="odd"><td><code>e</code> / <code>E</code></td><td>移动到下一个单词的结尾，大小写区别同上</td></tr><tr class="even"><td><code>b</code> / <code>B</code></td><td>动到上一个单词的开头，大小写区别同上</td></tr><tr class="odd"><td><code>f</code> {char}</td><td>在此行从光标开始搜索{char}字符，按下<code>;</code>跳转到下个字符，按下<code>,</code>跳转到前一个字符(可以到光标之前)</td></tr><tr class="even"><td><code>F</code>{char}</td><td>同<code>f</code>，但是自光标往前搜索</td></tr><tr class="odd"><td><code>0</code></td><td>移动到行首</td></tr><tr class="even"><td><code>$</code></td><td>移动到行尾</td></tr><tr class="odd"><td><code>^</code></td><td>移动到当前行的第一个非空字符</td></tr><tr class="even"><td><code>nG</code></td><td>移动到第<code>n</code>行(n表示一个数字)</td></tr><tr class="odd"><td><code>gg</code></td><td>移动到第一行</td></tr><tr class="even"><td><code>GG</code></td><td>移动到最后一行</td></tr><tr class="odd"><td><code>&#123;</code></td><td>移动到当前段落的开头</td></tr><tr class="even"><td><code>&#125;</code></td><td>移动到当前段落的末尾</td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr></tbody></table><h3 id="插入模式">插入模式</h3><p>在普通模式下按下<code>i</code>进入，在此模式下，你可以修改文本，进行编辑，同时也可以通过一些快捷键来对文本进行修改。</p><h4 id="快捷键">快捷键</h4><table><thead><tr class="header"><th>快捷键</th><th>描述</th></tr></thead><tbody><tr class="odd"><td><code>ctrl + h</code></td><td>删除光标前面的字符，类似退格键(Backspace)</td></tr><tr class="even"><td><code>ctrl + w</code></td><td>删除光标前面的单词</td></tr><tr class="odd"><td><code>ctrl + u</code></td><td>删除光标前面的该行所有内容</td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr></tbody></table><h3 id="命令模式">命令模式</h3><p>在普通模式下按下<code>：</code>键后输入命令</p><h4 id="常用命令">常用命令</h4><table><thead><tr class="header"><th>命令</th><th>描述</th></tr></thead><tbody><tr class="odd"><td><code>:quit</code></td><td>退出vim，可以缩写为<code>:q</code></td></tr><tr class="even"><td><code>:write</code></td><td>保存，可以缩写为<code>:w</code>，保存退出可以缩写为<code>:wq</code></td></tr><tr class="odd"><td><code>:n</code></td><td>移动光标到当前文件的第<code>n</code>行（n表示一个数字），同普通模式下的<code>nG</code></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr></tbody></table><p>注意：在命令之后增加<code>!</code>表示强制，如<code>:q!</code>表示强制退出(若修改后不想保存就可以使用)，<code>:wq!</code>表示强制保存并退出。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;vim概述&quot;&gt;vim概述&lt;/h1&gt;
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;
 &lt;p&gt;vim是一个高门槛(在我看来，可能是我太菜了)的文本编辑器，是由vi升级改良而发展出来的，比vi好用一点了(只是我的第一印象)。&lt;/p&gt;
-&lt;p&gt;想要熟练地使用vim是一件比较难的事，但是更难的是克服不再使用常用的编辑器，转</summary>
+&lt;p&gt;想要熟练地使用vim是一件比较难的事，但是更难的是克服不再使用常用的编辑器，转而使用一个新</summary>
       
     
     
@@ -72,6 +97,8 @@
     
     <category term="vim" scheme="https://nothingalr8.top/tags/vim/"/>
     
+    <category term="笔记" scheme="https://nothingalr8.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
   </entry>
   
   <entry>
@@ -79,7 +106,7 @@
     <link href="https://nothingalr8.top/2022/11/15/Linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/"/>
     <id>https://nothingalr8.top/2022/11/15/Linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/</id>
     <published>2022-11-15T12:03:17.000Z</published>
-    <updated>2022-11-15T12:29:03.483Z</updated>
+    <updated>2022-11-23T11:08:36.341Z</updated>
     
     <content type="html"><![CDATA[<h1 id="起因">起因</h1><p>随着开始使用linux系统，我对于命令的使用也越发频繁，将以此博客来对命令做笔记，并持续更新。</p><h1 id="命令">命令</h1><h2 id="基础命令">基础命令</h2><p>cd：切换目录</p><p>ls：列出当前目录下的文件</p><p>mv：移动</p><p>cp：复制</p><p>rm：移除文件</p><p>touch：创建文件</p><p>mkdir：创建文件夹</p><p>rmdir：移除文件夹</p><p>sudo：使用root权限</p><p>chmod：改变文件权限</p><p>rebot：重启计算机</p>]]></content>
     
@@ -96,12 +123,12 @@
     
     
     
-    <category term="随笔" scheme="https://nothingalr8.top/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="笔记" scheme="https://nothingalr8.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
-    
-    <category term="随笔" scheme="https://nothingalr8.top/tags/%E9%9A%8F%E7%AC%94/"/>
     
     <category term="Linux" scheme="https://nothingalr8.top/tags/Linux/"/>
+    
+    <category term="笔记" scheme="https://nothingalr8.top/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -573,36 +600,6 @@ LTS，</summary>
     
     
     <category term="Go" scheme="https://nothingalr8.top/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客日志(3)-重建</title>
-    <link href="https://nothingalr8.top/2022/10/13/%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%BF%97(3)-%E9%87%8D%E5%BB%BA/"/>
-    <id>https://nothingalr8.top/2022/10/13/%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%BF%97(3)-%E9%87%8D%E5%BB%BA/</id>
-    <published>2022-10-13T11:23:36.000Z</published>
-    <updated>2022-11-22T10:57:27.761Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="重建">重建</h1><p>我的博客被我玩坏了,无法修复,而重建就是我最好的选择,或许一开始,我就预料到了这个结局,但实际操纵起来,确实还是挺难受的,不如好好备份,避免重建。</p><p>重建的过程没有什么曲折,相当顺利,速度也比我第一次快了不少,而用Hexo建立博客的过程也让我发出感叹——好简单啊!这是我第一次建站没有的感受。</p><p>前不久,我通过了杭电助手二面的任务——用gin框架写一个简易的登录系统,我在这个过程中了解了不少网站的知识,这让我由衷的体会到了Hexo以及GitHubPage的便利。</p><p>用Hexo建立博客可以没有一点网站知识,只是通过教程一步步走,也可以顺利把网站建立起来。不用学习任何系统知识,不用编一句程序,不需要多么出色的布局设计......你所需要做的,只是安装node,npm以及hexo,并打几行指令。</p><p>而GitHubPage的便利,我是在部署网页到服务器上时体会到的。无需将配置文件转移到服务器,无需调试因为系统转移而产生的任何问题,无需重新安装环境,无需通过及其复杂以及耗时的网站备案(gtmd净网行动)。似乎国内也有类似GitHubPage一样的服务,但是好像也要备案了。</p><h1 id="新主题">新主题</h1><p>博客的重建也自然是迎来了新主题,我采用的是Fluid,主题比较简洁,也有暗色主题,比较符合我的审美。而主题也有较完善的使用指南,配置也非常方便。</p><p>主题的介绍我就不展开了,如果有兴趣,可以前往Fluid的<ahref="https://github.com/fluid-dev/hexo-theme-fluid">Github页面</a>与<ahref="https://hexo.fluid-dev.com/docs/">用户手册</a>。</p><h1 id="新评论系统">新评论系统</h1><p>评论,我原先使用的是Livere。也确实挺便利好用的,但是访问速度较慢,在暗色主题的适配上也会产生问题。所以,我一并把评论系统换了。</p><p>一开始,我是准备使用gitalk的,我的博客既然部署在GitHubPage上,就不用考虑gitalk的速度问题了。但是,在配置好gitalk后,gitalk评论始终加载不出来,我也尝试了多种方法去解决,最终也没有解决。</p><p>最后,我选择了valine,使用起来也较为简单,只是我对评论的头像不太满意,寻找的解决方法似乎也都不太行。后续我也许会使用其他评论。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;重建&quot;&gt;重建&lt;/h1&gt;
-&lt;p&gt;我的博客被我玩坏了,无法修复,而重建就是我最好的选择,或许一开始,我就预料到了这个结局,但实际操纵起来,确实还是挺难受的,不如好好备份,避免重建。&lt;/p&gt;
-&lt;p&gt;重建的过程没有什么曲折,相当顺利,速度也比我第一次快了不少,而用Hexo</summary>
-      
-    
-    
-    
-    <category term="博客日志" scheme="https://nothingalr8.top/categories/%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%BF%97/"/>
-    
-    
-    <category term="博客日志" scheme="https://nothingalr8.top/tags/%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%BF%97/"/>
-    
-    <category term="hexo" scheme="https://nothingalr8.top/tags/hexo/"/>
-    
-    <category term="网站搭建" scheme="https://nothingalr8.top/tags/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
