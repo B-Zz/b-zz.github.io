@@ -6,7 +6,7 @@
   <link href="https://nothingalr8.top/atom.xml" rel="self"/>
   
   <link href="https://nothingalr8.top/"/>
-  <updated>2022-11-23T10:40:53.214Z</updated>
+  <updated>2022-11-23T11:02:30.000Z</updated>
   <id>https://nothingalr8.top/</id>
   
   <author>
@@ -18,21 +18,21 @@
   
   <entry>
     <title>博客日志(5)</title>
-    <link href="https://nothingalr8.top/2022/11/23/%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%BF%97(5)/"/>
-    <id>https://nothingalr8.top/2022/11/23/%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%BF%97(5)/</id>
-    <published>2022-11-23T11:23:36.000Z</published>
-    <updated>2022-11-23T10:40:53.214Z</updated>
+    <link href="https://nothingalr8.top/2022/11/22/%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%BF%97(5)/"/>
+    <id>https://nothingalr8.top/2022/11/22/%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%BF%97(5)/</id>
+    <published>2022-11-22T11:23:36.000Z</published>
+    <updated>2022-11-23T11:02:30.000Z</updated>
     
-    <content type="html"><![CDATA[<p>好久没有写博客日志了，但对于博客的一些修修补补、改动还在不断，现小小地总结一下。</p><h1 id="改动">改动</h1><h2 id="大改动">大改动</h2><p>从上次写博客日志到现在，我对博客的最大改动也就是迁移了文件及环境配置。</p><p>我开始改用Ubuntu，把写博客的环境与博客文件都转移了过来，过程也比较顺利。</p><h2 id="小改动">小改动</h2><p>小改动就比较多了，下面依次列出来：</p><ol type="1"><li>改了一些图片的地址，把原本比较乱的地址进行了梳理</li><li>改动(更新)了关于页</li><li>改用Typora作为我写md文件的编辑器，主要我原先使用的没有linux版</li><li></li></ol><h1 id="遇到的坑">遇到的坑</h1><h2 id="图片地址问题">图片地址问题</h2><p>Hexo的图片相对地址与Typora默认相对地址不一样，导致图片加载问题(二者只能加载出一个)。</p><p>解决措施：在文章的头文件里加上一行<code>typora-root-url: ../</code>，然后在配置文件中将<code>post_asset_folder</code>设置为<code>true</code>，最后在博客<code>_posts</code>文件夹下的文章对应目录里添加图片。</p>]]></content>
+    <content type="html"><![CDATA[<p>好久没有写博客日志了，但对于博客的一些修修补补、改动还在不断，现小小地总结一下。</p><h1 id="改动">改动</h1><p>改动比较多，下面依次列出来：</p><ol type="1"><li>改了一些图片的地址，把原本比较乱的地址进行了梳理，所以更新地址都变为了同一天，可以在头文件中添加<code>updated: date</code>解决，但我目前懒得搞了</li><li>改动(更新)了关于页</li><li>改用Typora作为我写md文件的编辑器，主要我原先使用的没有linux版</li><li>迁移了文件及环境配置到linux系统</li></ol><h1 id="遇到的坑">遇到的坑</h1><h2 id="图片地址问题">图片地址问题</h2><p>Hexo的图片相对地址与Typora默认相对地址不一样，导致图片加载问题(二者只能加载出一个)。</p><p>默认情况下，hexo的相对地址从/source目录下开始，而Typora的相对地址为md文件的地址，可以通过在md头文件中加上<code>typora-root-url:</code>来改变Typora的相对地址。</p><p>最后，讲讲我的解决方法：</p><p>因为我在配置文件中打开了<code>post_asset_folder</code>，会在<code>_posts</code>目录下生成一个文章名的文件夹，相对地址改变为了对应的文件夹下，只需直接在文件夹下放图片，直接在图片链接中填写图片名就可以被hexo使用。</p><p>但是Typora无法识别，只需在md头文件中加入一行：<code>typora-root-url: /文章名</code></p><h2 id="hexo部署失败问题">Hexo部署失败问题</h2><p>在执行<code>hexo d</code>命令时，有时会遇到报错，报错如下：</p><p><img src="hexo-d-err.png" /></p><p>经过测试与尝试，网上找到的方法都无法解决问题，这只是网络问题。</p><p>我也不知道为什么，我把代理关了，就部署成功了。</p><p>若遇到类似的问题无需去修改什么配置，也不是git问题，只是网络问题，换个节点或是等待一段时间后或许就好了。</p>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;好久没有写博客日志了，但对于博客的一些修修补补、改动还在不断，现小小地总结一下。&lt;/p&gt;
 &lt;h1 id=&quot;改动&quot;&gt;改动&lt;/h1&gt;
-&lt;h2 id=&quot;大改动&quot;&gt;大改动&lt;/h2&gt;
-&lt;p&gt;从上次写博客日志到现在，我对博客的最大改动也就是迁移了文件及环境配置。&lt;/p&gt;
-&lt;p&gt;我开始改</summary>
+&lt;p&gt;改动比较多，下面依次列出来：&lt;/p&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;改了一些图片的地址，把原本比较乱的地址进行了梳理，所以更新地址都</summary>
       
     
     
@@ -53,7 +53,7 @@
     <link href="https://nothingalr8.top/2022/11/21/vim%E7%AC%94%E8%AE%B0/"/>
     <id>https://nothingalr8.top/2022/11/21/vim%E7%AC%94%E8%AE%B0/</id>
     <published>2022-11-21T10:12:04.000Z</published>
-    <updated>2022-11-22T12:22:35.395Z</updated>
+    <updated>2022-11-23T11:07:34.517Z</updated>
     
     <content type="html"><![CDATA[<h1 id="vim概述">vim概述</h1><p>vim是一个高门槛(在我看来，可能是我太菜了)的文本编辑器，是由vi升级改良而发展出来的，比vi好用一点了(只是我的第一印象)。</p><p>想要熟练地使用vim是一件比较难的事，但是更难的是克服不再使用常用的编辑器，转而使用一个新东西。在一开始，编辑效率会大大下降，但是之后，你会越来越快。</p><h1 id="vim键盘图">vim键盘图</h1><p>想要流利地使用vim，就要去记键盘图。</p><h2 id="中文版">中文版</h2><p><img src="vim-cn.gif" /></p><h2 id="英文版">英文版</h2><p>很多时候，结合英文版的键盘图可以提高记忆的效率。</p><p><img src="vim-en.gif" /></p><h1 id="使用笔记">使用笔记</h1><h2 id="界面">界面</h2><p><img src="vim-sc.png" /></p><h2 id="模式">模式</h2><p>vim共有3种模式：</p><ol type="1"><li>普通模式(normal mode)</li><li>插入模式(insert mode)</li><li>命令模式(command mode)</li></ol><h3 id="普通模式">普通模式</h3><p>vim的初始模式，在其他模式下按下<code>Esc</code>键返回。在此模式下，通过按下按键来浏览文本或是进入其他模式。</p><h4 id="移动光标浏览">移动光标(浏览)</h4><table><thead><tr class="header"><th>快捷键</th><th>描述</th></tr></thead><tbody><tr class="odd"><td><code>h</code> <code>j</code> <code>k</code> <code>l</code></td><td>依次替代<code>左</code> <code>下</code> <code>上</code><code>右</code> 四个方向键</td></tr><tr class="even"><td><code>w</code> / <code>W</code></td><td>移动到下一个单词的开头，小写表示以非字母为分割单位，大写表示之以空格作为分割单位</td></tr><tr class="odd"><td><code>e</code> / <code>E</code></td><td>移动到下一个单词的结尾，大小写区别同上</td></tr><tr class="even"><td><code>b</code> / <code>B</code></td><td>动到上一个单词的开头，大小写区别同上</td></tr><tr class="odd"><td><code>f</code> {char}</td><td>在此行从光标开始搜索{char}字符，按下<code>;</code>跳转到下个字符，按下<code>,</code>跳转到前一个字符(可以到光标之前)</td></tr><tr class="even"><td><code>F</code>{char}</td><td>同<code>f</code>，但是自光标往前搜索</td></tr><tr class="odd"><td><code>0</code></td><td>移动到行首</td></tr><tr class="even"><td><code>$</code></td><td>移动到行尾</td></tr><tr class="odd"><td><code>^</code></td><td>移动到当前行的第一个非空字符</td></tr><tr class="even"><td><code>nG</code></td><td>移动到第<code>n</code>行(n表示一个数字)</td></tr><tr class="odd"><td><code>gg</code></td><td>移动到第一行</td></tr><tr class="even"><td><code>GG</code></td><td>移动到最后一行</td></tr><tr class="odd"><td><code>&#123;</code></td><td>移动到当前段落的开头</td></tr><tr class="even"><td><code>&#125;</code></td><td>移动到当前段落的末尾</td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr></tbody></table><h3 id="插入模式">插入模式</h3><p>在普通模式下按下<code>i</code>进入，在此模式下，你可以修改文本，进行编辑，同时也可以通过一些快捷键来对文本进行修改。</p><h4 id="快捷键">快捷键</h4><table><thead><tr class="header"><th>快捷键</th><th>描述</th></tr></thead><tbody><tr class="odd"><td><code>ctrl + h</code></td><td>删除光标前面的字符，类似退格键(Backspace)</td></tr><tr class="even"><td><code>ctrl + w</code></td><td>删除光标前面的单词</td></tr><tr class="odd"><td><code>ctrl + u</code></td><td>删除光标前面的该行所有内容</td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr></tbody></table><h3 id="命令模式">命令模式</h3><p>在普通模式下按下<code>：</code>键后输入命令</p><h4 id="常用命令">常用命令</h4><table><thead><tr class="header"><th>命令</th><th>描述</th></tr></thead><tbody><tr class="odd"><td><code>:quit</code></td><td>退出vim，可以缩写为<code>:q</code></td></tr><tr class="even"><td><code>:write</code></td><td>保存，可以缩写为<code>:w</code>，保存退出可以缩写为<code>:wq</code></td></tr><tr class="odd"><td><code>:n</code></td><td>移动光标到当前文件的第<code>n</code>行（n表示一个数字），同普通模式下的<code>nG</code></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr></tbody></table><p>注意：在命令之后增加<code>!</code>表示强制，如<code>:q!</code>表示强制退出(若修改后不想保存就可以使用)，<code>:wq!</code>表示强制保存并退出。</p>]]></content>
     
@@ -66,6 +66,8 @@
       
     
     
+    
+    <category term="笔记" scheme="https://nothingalr8.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="vim" scheme="https://nothingalr8.top/tags/vim/"/>
